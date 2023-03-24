@@ -63,6 +63,14 @@ int main(){
 	}
 	
 	cout<<"}\n";
+	
+	//modulus A terhadap B
+	cout<<"A Modulus B = { ";
+	for(i=0;i<banyakA;i++){
+		cout<<a[i]%b[i]<<" ";
+	}
+	cout<<"}\n";
+	//Kemas Khairunsyah - 2200018155
 	cout<<"\n\nTekan sembarang untuk keluar . . .";
 	getch();
 	return 0;
