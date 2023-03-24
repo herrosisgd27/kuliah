@@ -42,7 +42,7 @@ int main(){
 	
 	//Membuat kode untuk mencari irisan nya
 	cout<<"\n\n-------------------------------\n";
-	cout<<"A gabungan B = { ";
+	cout<<"A irisan B = { ";
 	for(i=0;i<banyakA;i++){
 		for(j=0;j<banyakB;j++){
 			//a irisan b berisi anggota dari himpunan a dan b yang sama
@@ -53,8 +53,16 @@ int main(){
 		}
 	}
 	
-	cout<<"}";
+	cout<<"}\n";
+	cout<<"A Gabungan B ={ ";
+	for(i=0;i<banyakA;i++){
+		cout<<a[i]<<" ";
+	}
+	for(j=0;j<banyakB;j++){
+		cout<<b[j]<<" ";
+	}
 	
+	cout<<"}\n";
 	cout<<"\n\nTekan sembarang untuk keluar . . .";
 	getch();
 	return 0;
