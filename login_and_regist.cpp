@@ -11,52 +11,61 @@ class userAuthentication
 public:
     string username, password, userId, passId, userTampil;
     string email, emailId;
-	short int count;
+    short int count;
+
 private:
-	bool registrasi = false;
+    bool registrasi = false;
     bool loggedIn;
     void registration()
     {
-    	count = 1;
-    	cout << "===== Registrasi =====\n";
-    	while(true){
-	        while (true)
-	        {
-	            cout << "Masukkan email anda: ";
-	            cin >> email;
-	            if (isValidEmail(email))
-	            {
-	                break;
-	            }
-	            else
-	            {
-	                cout << "Email anda tidak valid, silahkan coba lagi!!!\n";
-	            }
-	        }
-	
-	        cout << "Masukkan username anda: ";
-	        cin.ignore();
-	        getline(cin, username);
-			
-			if(username == userId && email == emailId){
-				cout << "Email dan username anda sudah tersedia, silahkan masukkan email dan username yang berbeda!\n";
-			}else if (username == userId){
-				cout << "Username anda sudah tersedia, silahkan masukkan username yang berbeda!\n";
-			}else if(email == emailId){
-				cout << "Email anda sudah tersedia, silahkan masukkan email yang berbeda!\n";
-			}else{
-				break;
-			}
-			
-			if(count == 3){
-				cout << "Anda sudah melebihi batas percobaan yaitu sebanyak "<< count <<" silahkan ulangi registrasi anda!\n";
-				handleUser();
-				return;
-			}
-			count++;
-    	}
-		
-		
+        count = 1;
+        cout << "===== Registrasi =====\n";
+        while (true)
+        {
+            while (true)
+            {
+                cout << "Masukkan email anda: ";
+                cin >> email;
+                if (isValidEmail(email))
+                {
+                    break;
+                }
+                else
+                {
+                    cout << "Email anda tidak valid, silahkan coba lagi!!!\n";
+                }
+            }
+
+            cout << "Masukkan username anda: ";
+            cin.ignore();
+            getline(cin, username);
+
+            if (username == userId && email == emailId)
+            {
+                cout << "Email dan username anda sudah tersedia, silahkan masukkan email dan username yang berbeda!\n";
+            }
+            else if (username == userId)
+            {
+                cout << "Username anda sudah tersedia, silahkan masukkan username yang berbeda!\n";
+            }
+            else if (email == emailId)
+            {
+                cout << "Email anda sudah tersedia, silahkan masukkan email yang berbeda!\n";
+            }
+            else
+            {
+                break;
+            }
+
+            if (count == 3)
+            {
+                cout << "Anda sudah melebihi batas percobaan yaitu sebanyak " << count << " silahkan ulangi registrasi anda!\n";
+                handleUser();
+                return;
+            }
+            count++;
+        }
+
         cout << "Masukkan password anda: ";
         cin >> password;
 
@@ -86,7 +95,7 @@ private:
                     break;
                 }
                 // cin.get(); //system pause
-//                char c;
+                //                char c;
                 //   cout << "Lanjut?";
                 //   cin >> c;
                 system("pause");
@@ -95,58 +104,62 @@ private:
             count++;
         }
     }
-	bool validUsername( string username){
-		bool usernameValid = false;
-		if (username != userId)
+    bool validUsername(string username)
+    {
+        bool usernameValid = false;
+        if (username != userId)
         {
             return usernameValid;
-    	}
+        }
         return usernameValid = true;
-        
-	}
+    }
     void login()
     {
-	    int lupa = 1;
-	    cout << "===== Login =====\n";
-    	while(true){
-	        cout << "\nMasukkan username: ";
-	        cin.ignore();
-	        getline(cin, username);
-	
-	        cout << "Masukkan password: ";
-	        cin >> password;
-			
-			if(!registrasi){
-				cout << "Username atau password anda belum terdaftar silahkan registrasi terlebih dahulu!\n";
-				break;
-			}
-			
-			
-	        if (username == userId && password == passId)
-	        {
-	            loggedIn = true;
-	            cout << "Login berhasil\n\n";
-	            userTampil = userId;
-	            break;
-	        }else if(!validUsername(username)){
-	        	cout << "Username yang anda masukkan tidak tersedia, silahkan masukkan username yang benar atau registrasi terlebih dahulu!\n";
-	        	
-			}else if(username != userId || password != passId)
-	        {
-	            cout << "Login gagal! Periksa kembali username dan password Anda.\n";
-	            if(lupa >= 3){
-	            	char lanjut;
-		            cout << "Apakah anda lupa password?(Y/N)\n";
-		            cin >> lanjut;
-		            if (lanjut == 'y' || lanjut == 'Y')
-		            {
-		                forgot();
-		            }
-		            break;
-				}
-				lupa++;
-	        }
-		}
+        int lupa = 1;
+        cout << "===== Login =====\n";
+        while (true)
+        {
+            cout << "\nMasukkan username: ";
+            cin.ignore();
+            getline(cin, username);
+
+            cout << "Masukkan password: ";
+            cin >> password;
+
+            if (!registrasi)
+            {
+                cout << "Username atau password anda belum terdaftar silahkan registrasi terlebih dahulu!\n";
+                break;
+            }
+
+            if (username == userId && password == passId)
+            {
+                loggedIn = true;
+                cout << "Login berhasil\n\n";
+                userTampil = userId;
+                break;
+            }
+            else if (!validUsername(username))
+            {
+                cout << "Username yang anda masukkan tidak tersedia, silahkan masukkan username yang benar atau registrasi terlebih dahulu!\n";
+            }
+            else if (username != userId || password != passId)
+            {
+                cout << "Login gagal! Periksa kembali username dan password Anda.\n";
+                if (lupa >= 3)
+                {
+                    char lanjut;
+                    cout << "Apakah anda lupa password?(Y/N)\n";
+                    cin >> lanjut;
+                    if (lanjut == 'y' || lanjut == 'Y')
+                    {
+                        forgot();
+                    }
+                    break;
+                }
+                lupa++;
+            }
+        }
     }
 
     void forgot()
@@ -196,12 +209,12 @@ private:
 
     void gantiPassword()
     {
-    	
+
         string newPass;
         string konfirmPass;
         cout << "Masukkan password lama anda : ";
         cin >> password;
-		
+
         if (password == passId)
         {
             cout << "Masukkan password baru anda : ";
@@ -237,8 +250,7 @@ private:
     {
         loggedIn = false;
     }
-    
- 
+
 public:
     userAuthentication()
     {
@@ -283,24 +295,27 @@ public:
             registration();
             break;
         case 2:
-        	if(loggedIn == true){
-	    		cout << "Anda sudah login!\n";
-	    		break;
-			}
+            if (loggedIn == true)
+            {
+                cout << "Anda sudah login!\n";
+                break;
+            }
             login();
             break;
         case 3:
-        	if(!loggedIn){
-	    		cout << "Anda belum login, silahkan login terlebih dahulu!\n";
-	    		break;
-			}
+            if (!loggedIn)
+            {
+                cout << "Anda belum login, silahkan login terlebih dahulu!\n";
+                break;
+            }
             gantiPassword();
             break;
         case 4:
-           	if(!loggedIn){
-	    		cout << "Anda belum login, silahkan login terlebih dahulu!\n";
-	    		break;
-			}
+            if (!loggedIn)
+            {
+                cout << "Anda belum login, silahkan login terlebih dahulu!\n";
+                break;
+            }
             logout();
             break;
         case 5:
