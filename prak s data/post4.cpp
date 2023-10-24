@@ -1,6 +1,13 @@
+/*
+
+Kemas Khairunsyah
+2200018155
+NIM GANJIL
+
+*/
+
 #include <iostream>
 #include <string>
-// #include <vector>
 using namespace std;
 
 struct KTPData
@@ -101,9 +108,9 @@ public:
             {
                 current = current->next;
             }
-            delete current->next; // menghapus node terakhir
-            tail = current;       // mengubah tail menjadi current
-            tail->next = nullptr; // menghapus pointer ke node yang sudah dihapus
+            delete current->next;
+            tail = current;
+            tail->next = nullptr;
         }
     }
 };
@@ -126,14 +133,12 @@ int main()
         ktpManager.tambahDataBelakang(ktp);
     }
 
-    //    system("cls");
     cout << endl
          << endl;
 
-    // menampilkan data sebelum menghapus node terakhir
     cout << "Data sebelum menghapus node terakhir:\n\n";
 
-    node *current = ktpManager.head; // menggunakan node baru untuk menampilkan data
+    node *current = ktpManager.head;
     int i = 0;
     while (current != nullptr)
     {
@@ -143,14 +148,12 @@ int main()
         i++;
     }
 
-    // menghapus node terakhir dari linked list
     ktpManager.hapusDataBelakang();
 
-    // menampilkan data setelah menghapus node terakhir
     cout << "\n\n";
     cout << "Data setelah menghapus node terakhir:\n\n";
 
-    current = ktpManager.head; // menggunakan node yang sama untuk menampilkan data
+    current = ktpManager.head;
     i = 0;
     while (current != nullptr)
     {
@@ -160,7 +163,6 @@ int main()
         i++;
     }
 
-    // menghapus semua node dari linked list
     while (ktpManager.head != nullptr)
     {
         node *temp = ktpManager.head;
