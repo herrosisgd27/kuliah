@@ -142,7 +142,7 @@ int main()
     int i = 0;
     while (current != nullptr)
     {
-        cout << "\tDara KTP ke- " << i + 1 << ":" << endl;
+        cout << "\tData KTP ke- " << i + 1 << ":" << endl;
         ktpManager.displayData(current->data);
         current = current->next;
         i++;
