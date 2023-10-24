@@ -62,7 +62,7 @@ public:
         cout << "Mobil yang dipesan : " << endl;
         for (int i = 0; i < mobilDipesan.size(); i++)
         {
-            cout << i + 1 << ". " << mobilDipesan[i].nama << ", Total harga: " << mobilDipesan[i].totalHarga << endl;
+            cout << i + 1 << ". " << mobilDipesan[i].nama<<endl;
         }
     }
 
